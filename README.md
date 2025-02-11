@@ -1,3 +1,4 @@
+
 # Railway Management System API
 
 A REST API for a railway management system like IRCTC where users can search trains, check seat availability, and book tickets.
@@ -29,13 +30,15 @@ cd railway-management
 
 
 2. Install dependencies
-bash
+```bash
 npm install
+```
 3. Set up the database
 - Open MySQL Workbench
 - Connect to your MySQL server
 - Run the following SQL commands to create the database and tables:
-sql
+
+```sql
 CREATE DATABASE IF NOT EXISTS railwaysystem_db;
 USE railwaysystem_db;
 
@@ -67,8 +70,9 @@ CREATE TABLE bookings (
 );
 
 CREATE INDEX idx_trains_source_destination ON trains(source, destination);
+```
 4. Create a .env file in the root directory with the following content:
-
+```
 DB_HOST=localhost
 DB_USER=your_mysql_username
 DB_PASSWORD=your_mysql_password
@@ -77,29 +81,33 @@ DB_NAME=railway_db
 JWT_SECRET=your_jwt_secret
 ADMIN_API_KEY=your_admin_api_key
 PORT=3000
+```
 5. Start the server
-bash
+```bash
 npm start
+```
 ## API Endpoints
 
 ### Authentication
 
 - Register: `POST /api/auth/register`
-json
+```json
 {
     "username": "testuser",
     "password": "password123"
 }
+```
 - Login: `POST /api/auth/login`
-json
+```json
 {
     "username": "testuser",
     "password": "password123"
 }
+```
 ### Trains
 
 - Add Train (Admin): `POST /api/trains`
-json
+```json
 {
     "train_number": "12345",
     "train_name": "Express",
@@ -107,6 +115,7 @@ json
     "destination": "Mumbai",
     "total_seats": 100
 }
+```
 Headers: `X-API-KEY: your_admin_api_key`
 
 - Search Trains: `GET /api/trains/search?source=Delhi&destination=Mumbai`
@@ -114,10 +123,11 @@ Headers: `X-API-KEY: your_admin_api_key`
 ### Bookings
 
 - Book Seat: `POST /api/bookings`
-json
+```json
 {
     "train_id": 1
 }
+```
 Headers: `Authorization: Bearer your_jwt_token`
 
 - View All Bookings: `GET /api/bookings`
