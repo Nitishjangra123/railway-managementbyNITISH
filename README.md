@@ -21,9 +21,11 @@ A REST API for a railway management system like IRCTC where users can search tra
 ## Setup Instructions
 
 1. Clone the repository
-bash
+```bash
 git clone https://github.com/Nitishjangra123/railway-managementbyNITISH
 cd railway-management
+```
+
 
 
 2. Install dependencies
