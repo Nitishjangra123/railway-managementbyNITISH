@@ -76,7 +76,7 @@ CREATE INDEX idx_trains_source_destination ON trains(source, destination);
 DB_HOST=localhost
 DB_USER=your_mysql_username
 DB_PASSWORD=your_mysql_password
-DB_NAME=railway_db
+DB_NAME=railwaysystem_db
 
 JWT_SECRET=your_jwt_secret
 ADMIN_API_KEY=your_admin_api_key
